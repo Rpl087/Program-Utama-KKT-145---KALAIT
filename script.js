@@ -12,6 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // B. Logika Fungsional: Klik untuk Scroll ke Atas (Smooth)
+    backToTop.addEventListener('click', (e) => {
+        e.preventDefault(); // Mencegah fungsi default link (href="#top")
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Efek gulir halus
+        });
+    });
+
     // --- 2. FUNGSI PENGATUR MODAL (REUSABLE) ---
     function setupModal(triggerId, modalId, closeClass) {
         const trigger = document.getElementById(triggerId);
