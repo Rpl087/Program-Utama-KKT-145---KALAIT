@@ -232,18 +232,17 @@ section {
 }
 
 /* =========================================
-   5. COMPONENTS: POTENSI DESA (Grid Images)
+   5. COMPONENTS: POTENSI DESA (Grid Images & Video)
    ========================================= */
 .card-potensi-grid {
     border-radius: 15px;
     height: 250px;
-    background-size: cover;
-    background-position: center;
     position: relative;
     overflow: hidden;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #333; /* Warna dasar jika video loading */
 }
 
 .card-potensi-grid:hover {
@@ -251,8 +250,20 @@ section {
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
+/* --- LOGIKA VIDEO BACKGROUND --- */
+.card-potensi-grid video.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Video akan mengisi kotak tanpa gepeng */
+    z-index: 0; /* Posisi di paling belakang */
+}
+
+/* Konten Teks (Harus di atas video) */
 .potensi-content {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.3); /* Overlay gelap agar teks terbaca */
     width: 100%;
     height: 100%;
     display: flex;
@@ -264,6 +275,10 @@ section {
     padding: 20px;
     transition: background 0.3s;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    
+    /* PENTING: Agar teks berada di ATAS video */
+    position: relative; 
+    z-index: 1; 
 }
 
 .card-potensi-grid:hover .potensi-content {
@@ -271,11 +286,11 @@ section {
     color: var(--accent-color);
 }
 
-/* Background Images */
-.bg-potensi-1 { background-image: url('../img/pohon-kelapa.png'); } /* Pastikan path gambar benar */
-.bg-potensi-2 { background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop'); }
-.bg-potensi-3 { background-image: url('https://images.unsplash.com/photo-1545468860-71b585c83288?q=80&w=1000&auto=format&fit=crop'); }
-.bg-potensi-4 { background-image: url('https://images.unsplash.com/photo-1472851294608-41524b43640b?q=80&w=1000&auto=format&fit=crop'); }
+/* --- BACKGROUND IMAGE (Untuk yang bukan Video) --- */
+.bg-potensi-1, .bg-potensi-2 {
+    background-size: cover;
+    background-position: center;
+}
 
 /* =========================================
    6. COMPONENTS: MODALS
@@ -303,6 +318,12 @@ section {
     box-shadow: 0 15px 30px rgba(0,0,0,0.3);
     position: relative;
     animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Modifier: Modal Lebar (Sejarah) */
+.custom-modal-content.wide-modal {
+    max-width: 800px !important;
+    width: 95%; /* Agar tetap rapi di layar HP kecil */
 }
 
 @keyframes popIn {

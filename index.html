@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Website Resmi Desa Kalait, Kecamatan Touluaan Selatan, Minahasa Tenggara">
     <title>Desa Kalait - Beranda</title>
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -43,7 +43,7 @@
     </header>
 
     <main class="container my-5 flex-grow-1">
-        
+
         <section id="identitas">
             <div class="text-center mb-5">
                 <h2 class="section-title"><i class="fas fa-id-badge me-2"></i>Identitas Desa</h2>
@@ -73,30 +73,26 @@
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-3 col-md-6 col-12">
-                        <div class="card-potensi-grid bg-potensi-1">
+                        <div class="card-potensi-grid">
+                            <video class="bg-video" loop muted playsinline>
+                                <source src="img/pohon-kelapa.mp4" type="video/mp4">
+                            </video>
                             <div class="potensi-content">
                                 <p class="medium fw-bold">Pohon Kelapa</p>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-3 col-md-6 col-12">
-                        <div class="card-potensi-grid bg-potensi-2">
+                        <div class="card-potensi-grid">
+                            <video class="bg-video" loop muted playsinline>
+                                <source src="img/air-terjun.mp4" type="video/mp4">
+                            </video>
                             <div class="potensi-content">
-                                <p class="medium fw-bold">Pertanian Jagung</p>
+                                <p class="medium fw-bold">Air Terjun</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <div class="card-potensi-grid bg-potensi-3">
-                            <div class="potensi-content">
-                                <p class="medium fw-bold">Perkebunan Cengkih</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <div class="card-potensi-grid bg-potensi-4">
-                            <div class="potensi-content">
-                                <p class="medium fw-bold">Sumber Air</p>
                             </div>
                         </div>
                     </div>
@@ -113,20 +109,26 @@
                     <div class="card shadow-sm">
                         <div class="card-body">
                             <div class="row g-4 text-center justify-content-center">
-                                <div class="col-md-4">
-                                    <i class="fas fa-pen-nib text-success fs-3 mb-3 d-block"></i>
-                                    <h6 class="fw-bold">Asal-Usul Nama</h6>
-                                    <p class="text-muted mb-0">---</p>
+                                <div class="col-md-4" id="asalUsulTrigger" style="cursor: pointer;">
+                                    <div class="h-100 hover-shadow">
+                                        <i class="fas fa-pen-nib text-success fs-3 mb-3 d-block"></i>
+                                        <h6 class="fw-bold">Asal-Usul Nama</h6>
+                                        <p class="text-muted mb-0">Klik untuk baca sejarah</p>
+                                    </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <i class="fas fa-calendar-alt text-info fs-3 mb-3 d-block"></i>
-                                    <h6 class="fw-bold">Tahun Berdiri</h6>
-                                    <p class="text-muted mb-0">1918</p>
+                                    <div class="p-2 h-100">
+                                        <i class="fas fa-calendar-alt text-info fs-3 mb-3 d-block"></i>
+                                        <h6 class="fw-bold">Tahun Berdiri</h6>
+                                        <p class="text-muted mb-0">1918</p>
+                                    </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <i class="fas fa-user-tie text-danger fs-3 mb-3 d-block"></i>
-                                    <h6 class="fw-bold">Tokoh Berpengaruh</h6>
-                                    <p class="text-muted mb-0">Abedneju Umboh</p>
+                                    <div class="p-2 h-100">
+                                        <i class="fas fa-user-tie text-danger fs-3 mb-3 d-block"></i>
+                                        <h6 class="fw-bold">Tokoh Berpengaruh</h6>
+                                        <p class="text-muted mb-0">Abedneju Umboh</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -330,7 +332,7 @@
     </main>
 
     <a href="#top" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
-    
+
     <footer class="footer bg-dark text-white text-center py-4 mt-auto">
         <div class="container">
             <p class="mb-0">&copy; 2025 Desa Kalait. All Rights Reserved.</p>
@@ -339,65 +341,118 @@
 
     <div id="infoModal" class="custom-modal-overlay">
         <div class="custom-modal-content">
-            <span class="custom-close-btn" id="closeBtn">&times;</span>
+            <span class="custom-close-btn">&times;</span>
             <h3 class="modal-header-text">Detail Kependudukan</h3>
             <div class="jaga-section-title">Rincian per Jaga</div>
             <div class="jaga-grid">
-                <div class="jaga-box">
-                    <span class="jaga-label">Jaga I</span><span class="jaga-value">96 Orang</span>
-                </div>
-                <div class="jaga-box">
-                    <span class="jaga-label">Jaga II</span><span class="jaga-value">92 Orang</span>
-                </div>
-                <div class="jaga-box">
-                    <span class="jaga-label">Jaga III</span><span class="jaga-value">140 Orang</span>
-                </div>
-                <div class="jaga-box">
-                    <span class="jaga-label">Jaga IV</span><span class="jaga-value">128 Orang</span>
-                </div>
+                <div class="jaga-box"><span class="jaga-label">Jaga I</span><span class="jaga-value">96 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga II</span><span class="jaga-value">92 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga III</span><span class="jaga-value">140 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga IV</span><span class="jaga-value">128 Orang</span></div>
             </div>
         </div>
     </div>
 
     <div id="maleModal" class="custom-modal-overlay">
         <div class="custom-modal-content">
-            <span class="custom-close-btn close-male">&times;</span>
+            <span class="custom-close-btn">&times;</span>
             <h3 class="modal-header-text text-info"><i class="fas fa-male me-2"></i>Detail Laki-laki</h3>
             <div class="jaga-section-title">Rincian per Jaga</div>
             <div class="jaga-grid">
-                <div class="jaga-box">
-                    <span class="jaga-label">Jaga I</span><span class="jaga-value">51 Orang</span>
-                </div>
-                <div class="jaga-box">
-                    <span class="jaga-label">Jaga II</span><span class="jaga-value">48 Orang</span>
-                </div>
-                <div class="jaga-box">
-                    <span class="jaga-label">Jaga III</span><span class="jaga-value">65 Orang</span>
-                </div>
-                <div class="jaga-box">
-                    <span class="jaga-label">Jaga IV</span><span class="jaga-value">72 Orang</span>
-                </div>
+                <div class="jaga-box"><span class="jaga-label">Jaga I</span><span class="jaga-value">51 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga II</span><span class="jaga-value">48 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga III</span><span class="jaga-value">65 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga IV</span><span class="jaga-value">72 Orang</span></div>
             </div>
         </div>
     </div>
 
     <div id="femaleModal" class="custom-modal-overlay">
         <div class="custom-modal-content">
-            <span class="custom-close-btn close-female">&times;</span>
+            <span class="custom-close-btn">&times;</span>
             <h3 class="modal-header-text text-danger"><i class="fas fa-female me-2"></i>Detail Perempuan</h3>
             <div class="jaga-section-title">Rincian per Jaga</div>
             <div class="jaga-grid">
-                <div class="jaga-box">
-                    <span class="jaga-label">Jaga I</span><span class="jaga-value">46 Orang</span>
+                <div class="jaga-box"><span class="jaga-label">Jaga I</span><span class="jaga-value">46 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga II</span><span class="jaga-value">44 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga III</span><span class="jaga-value">75 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga IV</span><span class="jaga-value">56 Orang</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="asalUsulModal" class="custom-modal-overlay">
+        <div class="custom-modal-content wide-modal">
+            <span class="custom-close-btn">&times;</span>
+            <h3 class="modal-header-text text-success"><i class="fas fa-history me-2"></i>Sejarah Desa Kalait</h3>
+
+            <div style="max-height: 60vh; overflow-y: auto; text-align: justify; font-size: 15px; padding-right: 15px; line-height: 1.7;">
+
+                <p>Pada tahun 1912, di Desa Karimbow yang dipimpin oleh Hukum Tua <strong>Abedneju Umboh</strong>, terjadi peralihan jabatan kepada Daniel Umboh oleh pemerintah Belanda. Abedneju Umboh bersama pendukungnya kemudian memutuskan untuk mencari wilayah baru sebagai pemukiman.</p>
+
+                <p>Beliau memilih 9 pendukung andalan untuk membantu merintis wilayah baru:</p>
+                <ul class="mb-3 ps-3" style="column-count: 2; column-gap: 20px;">
+                    <li>Armanos Karuh</li>
+                    <li>Bernadus Tarek</li>
+                    <li>Sem Tarek</li>
+                    <li>Yorgen Liwe</li>
+                    <li>Arnold Liwe</li>
+                    <li>Elisa Porayow</li>
+                    <li>Markus Tompoliu</li>
+                    <li>Daud Sagai</li>
+                    <li>Ismael Lendo</li>
+                </ul>
+
+                <h5 class="fw-bold mt-4 text-primary">1. Perjalanan Mencari Wilayah</h5>
+                <p>Setelah gagal di kaki Pegunungan Wulur Ma’atus dan Toyopon karena kondisi tanah yang kurang cocok, rombongan akhirnya menemukan daerah subur di timur Sungai Ranoyapo. Mereka mendirikan pondok besar yang dinamakan <em>Terung Wangko</em>.</p>
+                <p>Pada tahun 1916, mereka menemukan lokasi pemukiman sementara bernama <strong>Temboan/Mawale</strong> ("Tulian Wo Iba’an" - Tempat Istirahat). Di sini, Abedneju Umboh membentuk "Mapalus Serikat" untuk membuka kebun pertama.</p>
+
+                <h5 class="fw-bold mt-4 text-primary">2. Pengesahan Desa Kalait (1918)</h5>
+                <p>Atas bantuan Hukum Tua Ranoketang Atas (Bapak Momuat) dan Hukum Besar Ratahan (Ruata), permohonan pengesahan disetujui pemerintah pada tahun 1918. Negeri ini dinamakan <strong>KALAID</strong> yang artinya <em>"Kalah Ingin Damai"</em>.</p>
+                <p><strong>Abedneju Umboh</strong> dilantik sebagai Hukum Tua pertama. Pada tahun 1920, beliau dianugerahi Bintang Jasa oleh pemerintah Belanda atas keberhasilannya membangun desa baru tersebut.</p>
+
+                <h5 class="fw-bold mt-4 text-primary">3. Pindah ke Kalaid Raya (1924)</h5>
+                <p>Karena kebutuhan air dan perluasan wilayah, pada tahun 1924 penduduk pindah ke lokasi Desa Kalait Raya sekarang. Sebelum pindah, Abedneju Umboh memilih 4 putri (Anta Umboh, Sabina Lendo, Tina Umboh, Cili Karuh) dan mengucapkan sumpah sebagai pondasi desa:</p>
+                <blockquote class="blockquote border-start border-success border-4 ps-4 py-2 bg-light fst-italic">
+                    "Siapa yang baik hidup di negeri ini, maka hidupnya akan lebih baik. Siapa yang menjadi pengacau, hidupnya akan rusak."
+                </blockquote>
+
+                <h5 class="fw-bold mt-4 text-primary">4. Daftar Hukum Tua Desa Kalait</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item">1. Abedneju Umboh (1918-1926)</li>
+                            <li class="list-group-item">2. Yohanes Umboh (1926-1933)</li>
+                            <li class="list-group-item">3. Johanis Pele (1933-1950)</li>
+                            <li class="list-group-item">4. Emil Umboh (1950-1951)</li>
+                            <li class="list-group-item">5. Luther Kaligis (1951-1965)</li>
+                            <li class="list-group-item">6. Piet Rugian (1965-1971)</li>
+                            <li class="list-group-item">7. Eduward Umboh (1971-1974)</li>
+                            <li class="list-group-item">8. Yes Somba (1974-1976)</li>
+                            <li class="list-group-item">9. Dagober Somba (1976-1981)</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item">10. M. Ch. Somba (1981-1989)</li>
+                            <li class="list-group-item">11. Like Kindangen (1989 & 1990)</li>
+                            <li class="list-group-item">12. Yosep Umboh (1989-1990)</li>
+                            <li class="list-group-item">13. Boy Umboh (1990)</li>
+                            <li class="list-group-item">14. Hien Tompoliu (1990-1999)</li>
+                            <li class="list-group-item">15. Royke J. Somba (1999-2006)</li>
+                            <li class="list-group-item">16. Adri Karuh (2006-2012)</li>
+                            <li class="list-group-item active">17. Olce Berty Tompoliu (2012-Sekarang)</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="jaga-box">
-                    <span class="jaga-label">Jaga II</span><span class="jaga-value">44 Orang</span>
-                </div>
-                <div class="jaga-box">
-                    <span class="jaga-label">Jaga III</span><span class="jaga-value">75 Orang</span>
-                </div>
-                <div class="jaga-box">
-                    <span class="jaga-label">Jaga IV</span><span class="jaga-value">56 Orang</span>
+
+                <h5 class="fw-bold mt-4 text-primary">5. Semboyan Desa</h5>
+                <div class="alert alert-success mt-2">
+                    <ul class="list-unstyled mb-0 fw-bold">
+                        <li><i class="fas fa-check-circle me-2"></i>ELUREN: Atur/Tata Baik-Baik Desa Ini</li>
+                        <li><i class="fas fa-check-circle me-2"></i>LO’OREN: Jadikan Bagus Dan Indah Desa Ini</li>
+                        <li><i class="fas fa-check-circle me-2"></i>LE’LEREN: Cintailah Desa Ini</li>
+                    </ul>
                 </div>
             </div>
         </div>

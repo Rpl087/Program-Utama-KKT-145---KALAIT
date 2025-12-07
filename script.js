@@ -9,17 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (header) {
         window.addEventListener('scroll', () => {
             let scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-            // Mencegah nilai negatif (scroll bounce pada iOS/Mobile)
             if (scrollTop < 0) scrollTop = 0;
 
-            // Logika: Jika scroll ke bawah > 100px, sembunyikan header
             if (scrollTop > lastScrollTop && scrollTop > 100) {
                 header.classList.add('header-hidden');
             } else {
                 header.classList.remove('header-hidden');
             }
-
             lastScrollTop = scrollTop;
         });
     }
@@ -30,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const backToTop = document.querySelector('.back-to-top');
 
     if (backToTop) {
-        // A. Tampilkan tombol saat scroll > 300px
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
                 backToTop.classList.add('show');
@@ -39,13 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // B. Klik untuk scroll ke atas (Smooth)
         backToTop.addEventListener('click', (e) => {
             e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 
@@ -53,40 +44,29 @@ document.addEventListener('DOMContentLoaded', () => {
        3. LOGIKA MODAL POP-UP
        ========================================= */
     
-    /**
-     * Fungsi reusable untuk mengaktifkan modal
-     * @param {string} triggerId - ID elemen yang diklik untuk membuka modal
-     * @param {string} modalId - ID container modal
-     */
     function initModal(triggerId, modalId) {
         const trigger = document.getElementById(triggerId);
         const modal = document.getElementById(modalId);
 
-        // Pastikan elemen trigger dan modal ada sebelum menjalankan logika
         if (!trigger || !modal) return;
 
-        // Cari tombol close (X) di DALAM modal ini saja
         const closeBtn = modal.querySelector('.custom-close-btn');
 
-        // Fungsi Menutup Modal
         const closeModal = () => {
             modal.style.display = "none";
-            document.body.style.overflow = ""; // Kembalikan scroll body
+            document.body.style.overflow = ""; 
         };
 
-        // 1. Buka Modal
         trigger.addEventListener('click', (e) => {
-            e.preventDefault(); // Mencegah loncat ke atas jika trigger adalah link #
+            e.preventDefault(); 
             modal.style.display = "flex";
-            document.body.style.overflow = "hidden"; // Matikan scroll body saat modal aktif
+            document.body.style.overflow = "hidden"; 
         });
 
-        // 2. Tutup via Tombol X
         if (closeBtn) {
             closeBtn.addEventListener('click', closeModal);
         }
 
-        // 3. Tutup via Klik Area Gelap (Overlay)
         window.addEventListener('click', (event) => {
             if (event.target === modal) {
                 closeModal();
@@ -95,14 +75,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Inisialisasi Modal ---
-    
-    // A. Modal Total Penduduk
-    initModal('cardTrigger', 'infoModal');
+    initModal('cardTrigger', 'infoModal');       // Total Penduduk
+    initModal('maleTrigger', 'maleModal');       // Laki-laki
+    initModal('femaleTrigger', 'femaleModal');   // Perempuan
+    initModal('asalUsulTrigger', 'asalUsulModal'); // Asal Usul
 
-    // B. Modal Laki-laki
-    initModal('maleTrigger', 'maleModal');
+    /* =========================================
+       4. LOGIKA VIDEO HOVER (Play/Pause)
+       ========================================= */
+    const potensiCards = document.querySelectorAll('.card-potensi-grid');
 
-    // C. Modal Perempuan
-    initModal('femaleTrigger', 'femaleModal');
+    potensiCards.forEach(card => {
+        const video = card.querySelector('video');
+        if (video) {
+            // Pastikan video pause saat awal
+            video.pause();
+
+            card.addEventListener('mouseenter', () => {
+                video.play().catch(error => {
+                    // Penanganan error autoplay (opsional)
+                    console.log("Autoplay dicegah oleh browser:", error);
+                });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                video.pause();
+                video.currentTime = 0; // Opsi: Reset ke awal saat keluar
+            });
+        }
+    });
 
 });
