@@ -222,7 +222,7 @@ section {
 
 .card-potensi-grid:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgb(255, 255, 255);
 }
 
 .card-potensi-grid video.bg-video {
@@ -236,7 +236,7 @@ section {
 }
 
 .potensi-content {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.7);
     width: 100%;
     height: 100%;
     display: flex;
@@ -253,7 +253,7 @@ section {
 }
 
 .card-potensi-grid:hover .potensi-content {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(255, 255, 255, 0);
     color: var(--accent-color);
 }
 
