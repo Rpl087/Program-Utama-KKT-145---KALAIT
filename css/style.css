@@ -452,7 +452,6 @@ section {
 
     .row:has(.card-potensi-grid) {
         --bs-gutter-x: 0;
-        padding: 0 15px 0 15px;
     }
 
     .col-12:has(.card-potensi-grid),
